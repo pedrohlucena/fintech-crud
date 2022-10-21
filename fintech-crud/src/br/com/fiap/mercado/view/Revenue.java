@@ -1,8 +1,10 @@
 package br.com.fiap.mercado.view;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Revenue {
+public class Revenue implements Serializable {
+	private static final long serialVersionUID = 1L;
 	int revenueCode;
 	int userCode;
 	double revenueValue;
