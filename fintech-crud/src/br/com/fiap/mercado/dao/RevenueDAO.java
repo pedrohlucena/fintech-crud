@@ -1,0 +1,14 @@
+package br.com.fiap.mercado.dao;
+
+import java.util.List;
+
+import br.com.fiap.mercado.entity.Revenue;
+
+public interface RevenueDAO {
+	void save (Revenue revenue);
+	List<Revenue> list();
+	void remove (int code);
+	Revenue fetchById (int revenueCode);
+	List<Revenue> fetchAllByUserCode(int userCode);
+	void update (Revenue revenue);
+}
