@@ -11,11 +11,12 @@ import java.util.List;
 import br.com.fiap.mercado.entity.Revenue;
 import br.com.fiap.mercado.jdbc.EnterpriseDBConnection;
 
-public class RevenueDAOImpl {
+public class RevenueDAOImpl implements RevenueDAO {
 	private Connection connection;
 
 	private PreparedStatement stmt;
 
+	@Override
 	public void save(Revenue revenue) {
 		this.connection = null;
 		this.stmt = null;
@@ -53,6 +54,7 @@ public class RevenueDAOImpl {
 		}
 	} 
 
+	@Override
 	public List<Revenue> list() {
 		this.stmt = null;
 		List<Revenue> revenueList = new ArrayList<Revenue>();
@@ -96,6 +98,7 @@ public class RevenueDAOImpl {
 		return revenueList;
 	}
 
+	@Override
 	public void remove(int revenueCode) {
 		this.stmt = null;
 		
@@ -117,6 +120,7 @@ public class RevenueDAOImpl {
 		}
 	}
 
+	@Override
 	public Revenue fetchById(int revenueCode) {
 		this.stmt = null;
 		Revenue revenue = null;
@@ -162,6 +166,7 @@ public class RevenueDAOImpl {
 		return revenue;
 	}
 	
+	@Override
 	public List<Revenue> fetchAllByUserCode(int userCode) {
 		this.stmt = null;
 		List<Revenue> revenueList = new ArrayList<Revenue>();
@@ -209,6 +214,7 @@ public class RevenueDAOImpl {
 		return revenueList;
 	}
 
+	@Override
 	public void update(Revenue revenue) {
 		this.stmt = null;
 
