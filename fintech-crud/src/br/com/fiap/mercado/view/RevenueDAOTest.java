@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.tests;
+package br.com.fiap.mercado.view;
 
 import java.util.Calendar;
 import java.util.List;
