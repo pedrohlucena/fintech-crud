@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.view;
+package br.com.fiap.mercado.entity;
 
 import java.io.Serializable;
 import java.util.Calendar;

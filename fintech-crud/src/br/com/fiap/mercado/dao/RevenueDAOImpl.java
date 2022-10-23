@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.view;
+package br.com.fiap.mercado.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class RevenueDAO {
+import br.com.fiap.mercado.entity.Revenue;
+import br.com.fiap.mercado.jdbc.EnterpriseDBConnection;
+
+public class RevenueDAOImpl {
 	private Connection connection;
 
 	private PreparedStatement stmt;
@@ -157,6 +160,53 @@ public class RevenueDAO {
 		}
 
 		return revenue;
+	}
+	
+	public List<Revenue> fetchAllByUserCode(int userCode) {
+		this.stmt = null;
+		List<Revenue> revenueList = new ArrayList<Revenue>();
+		ResultSet result = null;
+
+		try {
+			this.connection = EnterpriseDBConnection.connect();
+
+			stmt = connection.prepareStatement("SELECT * FROM T_RECEITA WHERE cd_usuario = ?");
+			stmt.setInt(1, userCode);
+
+			result = stmt.executeQuery();
+			
+			Revenue revenue = null;
+			
+			while (result.next()) {
+				java.sql.Date data = result.getDate("dt_receita");
+				Calendar revenueDate = Calendar.getInstance();
+				revenueDate.setTimeInMillis(data.getTime());
+
+				revenue = new Revenue(
+						result.getInt("cd_receita"), 
+						result.getInt("cd_usuario"),
+						result.getDouble("vl_receita"), 
+						result.getString("nm_receita"), 
+						revenueDate,
+						result.getString("st_recebido"),
+						result.getString("st_receita_fixa"), 
+						result.getString("txt_descricao")
+				);
+
+				revenueList.add(revenue);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return revenueList;
 	}
 
 	public void update(Revenue revenue) {

@@ -1,12 +1,15 @@
-package br.com.fiap.mercado.view;
+package br.com.fiap.mercado.tests;
 
 import java.util.Calendar;
 import java.util.List;
 
+import br.com.fiap.mercado.dao.RevenueDAOImpl;
+import br.com.fiap.mercado.entity.Revenue;
+
 public class RevenueDAOTest {
 
 	public static void main(String[] args) {
-		RevenueDAO revenueDAO = new RevenueDAO();
+		RevenueDAOImpl revenueDAO = new RevenueDAOImpl();
 		
 		Revenue revenueToBeCreated = new Revenue(
 				1, 
@@ -33,8 +36,18 @@ public class RevenueDAOTest {
 
 		revenueDAO.update(revenueToBeUpdated);
 			
-		List<Revenue> revenueList = revenueDAO.list();
-		for(Revenue revenueItem: revenueList) {
+		List<Revenue> listOfAllRevenues = revenueDAO.list();
+		for(Revenue revenueItem: listOfAllRevenues) {
+			System.out.println(
+					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +
+					"Código do usuário dono da receita: " + revenueItem.getUserCode() + "\n" +
+					"Nome da receita: " + revenueItem.getRevenueName() + "\n" +
+					"Descrição da receita: " + revenueItem.getDescription() + "\n\n"
+			);
+		}
+		
+		List<Revenue> listOfAllRevenuesOfAUser = revenueDAO.fetchAllByUserCode(1);
+		for(Revenue revenueItem: listOfAllRevenuesOfAUser) {
 			System.out.println(
 					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +
 					"Código do usuário dono da receita: " + revenueItem.getUserCode() + "\n" +
