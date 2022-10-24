@@ -1,10 +1,11 @@
-package br.com.fiap.mercado.view;
+package br.com.fiap.database.fintech;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class EnterpriseDBConnection {
+	
 	public static Connection connect() {
 		Connection connection = null;
 		try {
