@@ -6,7 +6,7 @@ import java.util.List;
 import br.com.fiap.mercado.dao.RevenueDAOImpl;
 import br.com.fiap.mercado.entity.Revenue;
 
-public class RevenueDAOTest {
+public class RevenueDAOImplTest {
 
 	public static void main(String[] args) {
 		RevenueDAOImpl revenueDAO = new RevenueDAOImpl();
