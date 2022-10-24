@@ -55,7 +55,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 	} 
 
 	@Override
-	public List<Revenue> list() {
+	public List<Revenue> getAll() {
 		this.stmt = null;
 		List<Revenue> revenueList = new ArrayList<Revenue>();
 		ResultSet result = null;

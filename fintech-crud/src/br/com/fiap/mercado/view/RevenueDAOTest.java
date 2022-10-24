@@ -36,7 +36,7 @@ public class RevenueDAOTest {
 
 		revenueDAO.update(revenueToBeUpdated);
 			
-		List<Revenue> listOfAllRevenues = revenueDAO.list();
+		List<Revenue> listOfAllRevenues = revenueDAO.getAll();
 		for(Revenue revenueItem: listOfAllRevenues) {
 			System.out.println(
 					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +

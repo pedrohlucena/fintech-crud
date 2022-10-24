@@ -6,7 +6,7 @@ import br.com.fiap.mercado.entity.Revenue;
 
 public interface RevenueDAO {
 	void save (Revenue revenue);
-	List<Revenue> list();
+	List<Revenue> getAll();
 	void remove (int code);
 	Revenue fetchById (int revenueCode);
 	List<Revenue> fetchAllByUserCode(int userCode);
