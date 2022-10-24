@@ -17,7 +17,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 	private PreparedStatement stmt;
 
 	@Override
-	public void save(Revenue revenue) {
+	public void insert(Revenue revenue) {
 		this.connection = null;
 		this.stmt = null;
 

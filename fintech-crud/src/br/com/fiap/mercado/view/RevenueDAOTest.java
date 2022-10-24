@@ -10,8 +10,18 @@ public class RevenueDAOTest {
 
 	public static void main(String[] args) {
 		RevenueDAOImpl revenueDAO = new RevenueDAOImpl();
+
+		revenueDAO.insert(new Revenue(
+				1, 
+				30.78,
+				"Ganhei no binco",
+				Calendar.getInstance(),
+				"S",
+				"N",
+				"Ganhei no binco quinta feira passada"
+		));
 		
-		Revenue revenueToBeCreated = new Revenue(
+		revenueDAO.insert(new Revenue(
 				1, 
 				73.25,
 				"Aula do Leo - Todas as quartas às 21h",
@@ -19,9 +29,37 @@ public class RevenueDAOTest {
 				"S",
 				"S",
 				"Aula do Leonardo - Todas as quintas às 21h30"
-		);
-
-		revenueDAO.save(revenueToBeCreated);
+		));
+		
+		revenueDAO.insert(new Revenue(
+				2, 
+				100,
+				"Sorteio de R$100",
+				Calendar.getInstance(),
+				"N",
+				"N",
+				"Participei de um sorteio e acabei ganhando, +100 pra conta"
+		));
+		
+		revenueDAO.insert(new Revenue(
+				2, 
+				2389.75,
+				"Salário caiu",
+				Calendar.getInstance(),
+				"S",
+				"S",
+				"Dia do pagamento"
+		));
+		
+		revenueDAO.insert(new Revenue(
+				3, 
+				170,
+				"Recebimento do serviço prestado ao Sr. Omar",
+				Calendar.getInstance(),
+				"S",
+				"N",
+				"Faço bico de pedreiro as vezes, +170 pra conta!"
+		));
 		
 		Revenue revenueToBeUpdated = revenueDAO.fetchById(52);
 		
