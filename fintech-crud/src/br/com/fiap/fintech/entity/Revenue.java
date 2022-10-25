@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.entity;
+package br.com.fiap.fintech.entity;
 
 import java.io.Serializable;
 import java.util.Calendar;

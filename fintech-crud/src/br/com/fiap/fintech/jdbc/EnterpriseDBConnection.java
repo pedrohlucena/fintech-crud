@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.jdbc;
+package br.com.fiap.fintech.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

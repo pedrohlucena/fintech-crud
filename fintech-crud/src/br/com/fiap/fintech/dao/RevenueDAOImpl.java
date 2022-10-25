@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.dao;
+package br.com.fiap.fintech.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.fiap.mercado.entity.Revenue;
-import br.com.fiap.mercado.jdbc.EnterpriseDBConnection;
+import br.com.fiap.fintech.entity.Revenue;
+import br.com.fiap.fintech.jdbc.EnterpriseDBConnection;
 
 public class RevenueDAOImpl implements RevenueDAO {
 	private Connection connection;
@@ -40,14 +40,12 @@ public class RevenueDAOImpl implements RevenueDAO {
 			stmt.setString(7, revenue.getDescription());
 
 			stmt.executeUpdate();
-
-			System.out.println("BLABLBLA");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				stmt.close();
-				connection.close();
+				this.stmt.close();
+				this.connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

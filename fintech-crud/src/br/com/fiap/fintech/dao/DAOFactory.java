@@ -1,4 +1,4 @@
-package br.com.fiap.mercado.dao;
+package br.com.fiap.fintech.dao;
 
 public abstract class DAOFactory {
 	public static RevenueDAO getRevenueDAO() {

@@ -1,8 +1,8 @@
-package br.com.fiap.mercado.dao;
+package br.com.fiap.fintech.dao;
 
 import java.util.List;
 
-import br.com.fiap.mercado.entity.Revenue;
+import br.com.fiap.fintech.entity.Revenue;
 
 public interface RevenueDAO {
 	void insert (Revenue revenue);
