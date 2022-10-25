@@ -61,40 +61,40 @@ public class RevenueDAOImplTest {
 				"Faço bico de pedreiro as vezes, +170 pra conta!"
 		));
 		
-//		Revenue revenueToBeUpdated = revenueDAO.fetchById(52);
-//		
-//		System.out.println(revenueToBeUpdated.getRevenueName());
-//		
-//		revenueToBeUpdated.setRevenueValue(60);
-//		revenueToBeUpdated.setRevenueName("Instrução de meditação");
-//		revenueToBeUpdated.setRevenueDate(Calendar.getInstance());
-//		revenueToBeUpdated.setIsFixedRevenue("S");
-//		revenueToBeUpdated.setIsReceived("S");
-//		revenueToBeUpdated.setDescription("Turma 3°A - Instrução de meditação às quintas 15h");
-//
-//		revenueDAO.update(revenueToBeUpdated);
-//			
-//		List<Revenue> listOfAllRevenues = revenueDAO.getAll();
-//		for(Revenue revenueItem: listOfAllRevenues) {
-//			System.out.println(
-//					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +
-//					"Código do usuário dono da receita: " + revenueItem.getUserCode() + "\n" +
-//					"Nome da receita: " + revenueItem.getRevenueName() + "\n" +
-//					"Descrição da receita: " + revenueItem.getDescription() + "\n\n"
-//			);
-//		}
-//		
-//		List<Revenue> listOfAllRevenuesOfAUser = revenueDAO.fetchAllByUserCode(1);
-//		for(Revenue revenueItem: listOfAllRevenuesOfAUser) {
-//			System.out.println(
-//					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +
-//					"Código do usuário dono da receita: " + revenueItem.getUserCode() + "\n" +
-//					"Nome da receita: " + revenueItem.getRevenueName() + "\n" +
-//					"Descrição da receita: " + revenueItem.getDescription() + "\n\n"
-//			);
-//		}
-//		
-//		revenueDAO.remove(5);
+		Revenue revenueToBeUpdated = revenueDAO.fetchById(52);
+		
+		System.out.println(revenueToBeUpdated.getRevenueName());
+		
+		revenueToBeUpdated.setRevenueValue(60);
+		revenueToBeUpdated.setRevenueName("Instrução de meditação");
+		revenueToBeUpdated.setRevenueDate(Calendar.getInstance());
+		revenueToBeUpdated.setIsFixedRevenue("S");
+		revenueToBeUpdated.setIsReceived("S");
+		revenueToBeUpdated.setDescription("Turma 3°A - Instrução de meditação às quintas 15h");
+
+		revenueDAO.update(revenueToBeUpdated);
+			
+		List<Revenue> listOfAllRevenues = revenueDAO.getAll();
+		for(Revenue revenueItem: listOfAllRevenues) {
+			System.out.println(
+					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +
+					"Código do usuário dono da receita: " + revenueItem.getUserCode() + "\n" +
+					"Nome da receita: " + revenueItem.getRevenueName() + "\n" +
+					"Descrição da receita: " + revenueItem.getDescription() + "\n\n"
+			);
+		}
+		
+		List<Revenue> listOfAllRevenuesOfAUser = revenueDAO.fetchAllByUserCode(1);
+		for(Revenue revenueItem: listOfAllRevenuesOfAUser) {
+			System.out.println(
+					"Código da receita: " + revenueItem.getRevenueCode() + "\n" +
+					"Código do usuário dono da receita: " + revenueItem.getUserCode() + "\n" +
+					"Nome da receita: " + revenueItem.getRevenueName() + "\n" +
+					"Descrição da receita: " + revenueItem.getDescription() + "\n\n"
+			);
+		}
+		
+		revenueDAO.remove(5);
 	}
 
 }
