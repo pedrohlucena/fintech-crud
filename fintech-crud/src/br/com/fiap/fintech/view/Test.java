@@ -11,28 +11,24 @@ import br.com.fiap.fintech.entity.Revenue;
 public class Test {
 
 	public static void main(String[] args) {
-		RevenueDAO revenueDAO = DAOFactory.getRevenueDAO();
-
-		revenueDAO.insert(new Revenue(
-				1, 
-				30.78,
-				"Ganhei no binco",
-				Calendar.getInstance(),
-				"S",
-				"N",
-				"Ganhei no binco quinta feira passada"
-		));
+//		RevenueDAO revenueDAO = DAOFactory.getRevenueDAO();
+//
+//		revenueDAO.insert(new Revenue(
+//				1, 
+//				30.78,
+//				"Ganhei no binco",
+//				Calendar.getInstance(),
+//				"S",
+//				"N",
+//				"Ganhei no binco quinta feira passada"
+//		));
 		
 		ExpenseDAO expenseDAO = DAOFactory.getExpenseDAO();
-		expenseDAO.insert(new Expense(
-				1, 
-				32.89,
-				"Pagar mensalidade FIAP",
-				Calendar.getInstance(),
-				"S",
-				"N",
-				"Pagar mensalidade antes do dia 8 para evitar juros"
-				));
+		List<Expense> listaDespesas = expenseDAO.getAll();
+		
+		for(Expense expense: listaDespesas) {
+			System.out.println(expense.getExpenseName());
+		}
 		
 //		revenueDAO.insert(new Revenue(
 //				1, 
