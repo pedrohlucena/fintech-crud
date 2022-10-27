@@ -23,8 +23,8 @@ public class EnterpriseDBConnection {
 
 			connection = DriverManager.getConnection(
 					"jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL",
-					"user", 
-					"pw"
+					"RM95511", 
+					"210696"
 			);
 			
 			return connection;
