@@ -5,14 +5,14 @@ import java.util.Calendar;
 
 public class Revenue implements Serializable {
 	private static final long serialVersionUID = 1L;
-	int revenueCode;
-	int userCode;
-	double revenueValue;
-	String revenueName;
-	Calendar revenueDate;
-	String isReceived;
-	String isFixedRevenue;
-	String description;
+	private	int revenueCode;
+	private int userCode;
+	private double revenueValue;
+	private String revenueName;
+	private Calendar revenueDate;
+	private String isReceived;
+	private String isFixedRevenue;
+	private String description;
 	
 	public Revenue () { super(); };
 	
