@@ -8,7 +8,7 @@ import br.com.fiap.fintech.dao.RevenueDAO;
 import br.com.fiap.fintech.entity.Expense;
 import br.com.fiap.fintech.entity.Revenue;
 
-public class RevenueDAOImplTest {
+public class Test {
 
 	public static void main(String[] args) {
 		RevenueDAO revenueDAO = DAOFactory.getRevenueDAO();
@@ -22,17 +22,17 @@ public class RevenueDAOImplTest {
 				"N",
 				"Ganhei no binco quinta feira passada"
 		));
-//		
-//		ExpenseDAO expenseDAO = DAOFactory.getExpenseDAO();
-//		expenseDAO.insert(new Expense(
-//				1, 
-//				32.89,
-//				"Pagar mensalidade FIAP",
-//				Calendar.getInstance(),
-//				"S",
-//				"N",
-//				"Pagar mensalidade antes do dia 8 para evitar juros"
-//				));
+		
+		ExpenseDAO expenseDAO = DAOFactory.getExpenseDAO();
+		expenseDAO.insert(new Expense(
+				1, 
+				32.89,
+				"Pagar mensalidade FIAP",
+				Calendar.getInstance(),
+				"S",
+				"N",
+				"Pagar mensalidade antes do dia 8 para evitar juros"
+				));
 		
 //		revenueDAO.insert(new Revenue(
 //				1, 
