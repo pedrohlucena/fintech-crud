@@ -22,7 +22,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 		this.stmt = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			String sql = "INSERT INTO T_RECEITA (cd_receita, cd_usuario, vl_receita, nm_receita, dt_receita, st_recebido, st_receita_fixa, txt_descricao) " + 
 			             "VALUES (SEQ_RECEITA.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
@@ -58,7 +58,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 		List<Revenue> revenueList = new ArrayList<Revenue>();
 		ResultSet result = null;
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 			stmt = connection.prepareStatement("SELECT * FROM T_RECEITA");
 			result = stmt.executeQuery();
 
@@ -101,7 +101,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 		this.stmt = null;
 		
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			stmt = connection.prepareStatement("DELETE FROM T_RECEITA WHERE cd_receita = ?");
 			stmt.setInt(1, revenueCode);
@@ -125,7 +125,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 		ResultSet result = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			this.stmt = this.connection.prepareStatement("SELECT * FROM T_RECEITA WHERE cd_receita = ?");
 			this.stmt.setInt(1, revenueCode);
@@ -171,7 +171,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 		ResultSet result = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			stmt = connection.prepareStatement("SELECT * FROM T_RECEITA WHERE cd_usuario = ?");
 			stmt.setInt(1, userCode);
@@ -217,7 +217,7 @@ public class RevenueDAOImpl implements RevenueDAO {
 		this.stmt = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			String sql = "UPDATE T_RECEITA SET cd_usuario = ?, vl_receita = ?, nm_receita = ?, txt_descricao = ? ,dt_receita = ?, st_recebido = ?, st_receita_fixa = ? WHERE cd_receita = ?";
 

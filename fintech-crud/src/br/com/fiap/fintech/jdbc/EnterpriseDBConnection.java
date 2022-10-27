@@ -5,15 +5,26 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class EnterpriseDBConnection {
-	public static Connection connect() {
+	
+	private static EnterpriseDBConnection instance;
+	
+	private EnterpriseDBConnection(){}
+
+	public static EnterpriseDBConnection getInstance() {
+		if (instance == null)
+		    instance = new EnterpriseDBConnection();		
+		return instance;	
+	}
+	
+	public Connection getConnection(){	
 		Connection connection = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			connection = DriverManager.getConnection(
 					"jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL",
-					"RM95051", 
-					"050403"
+					"usuario", 
+					"senha"
 			);
 			
 			return connection;
@@ -27,5 +38,4 @@ public class EnterpriseDBConnection {
 		return connection;
 	}
 }
-
 

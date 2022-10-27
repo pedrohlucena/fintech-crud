@@ -22,17 +22,17 @@ public class RevenueDAOImplTest {
 				"N",
 				"Ganhei no binco quinta feira passada"
 		));
-		
-		ExpenseDAO expenseDAO = DAOFactory.getExpenseDAO();
-		expenseDAO.insert(new Expense(
-				1, 
-				32.89,
-				"Pagar mensalidade FIAP",
-				Calendar.getInstance(),
-				"S",
-				"N",
-				"Pagar mensalidade antes do dia 8 para evitar juros"
-				));
+//		
+//		ExpenseDAO expenseDAO = DAOFactory.getExpenseDAO();
+//		expenseDAO.insert(new Expense(
+//				1, 
+//				32.89,
+//				"Pagar mensalidade FIAP",
+//				Calendar.getInstance(),
+//				"S",
+//				"N",
+//				"Pagar mensalidade antes do dia 8 para evitar juros"
+//				));
 		
 //		revenueDAO.insert(new Revenue(
 //				1, 

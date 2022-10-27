@@ -22,18 +22,18 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		this.stmt = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
-			String sql = "INSERT INTO T_DESPESA (cd_despesa, cd_usuario, vl_despesa, nm_despesa, dt_despesa, st_pago, st_despesa_fixa, txt_descricao) " + 
-			             "VALUES (SEQ_DESPESA.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
-			
-			java.sql.Date data = new java.sql.Date(expense.getExpenseDate().getTimeInMillis());
+			String sql = "INSERT INTO T_DESPESA (cd_despesa, cd_usuario, vl_despesa, nm_despesa, "
+					+ "dt_despesa, st_pago, st_despesa_fixa, txt_descricao) " + 
+			          "VALUES (SEQ_DESPESA.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";	
 
 			this.stmt = connection.prepareStatement(sql);
 			
 			stmt.setInt(1, expense.getUserCode());
 			stmt.setDouble(2, expense.getExpenseValue());
 			stmt.setString(3, expense.getExpenseName());
+			java.sql.Date data = new java.sql.Date(expense.getExpenseDate().getTimeInMillis());
 			stmt.setDate(4, data);
 			stmt.setString(5, expense.getIsReceived());
 			stmt.setString(6, expense.getIsFixedExpense());
@@ -58,7 +58,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		List<Expense> expenseList = new ArrayList<Expense>();
 		ResultSet result = null;
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 			stmt = connection.prepareStatement("SELECT * FROM T_DESPESA");
 			result = stmt.executeQuery();
 
@@ -101,7 +101,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		this.stmt = null;
 		
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			stmt = connection.prepareStatement("DELETE FROM T_DESPESA WHERE cd_despesa = ?");
 			stmt.setInt(1, expenseCode);
@@ -125,7 +125,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		ResultSet result = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			this.stmt = this.connection.prepareStatement("SELECT * FROM T_DESPESA WHERE cd_despesa = ?");
 			this.stmt.setInt(1, expenseCode);
@@ -170,7 +170,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		ResultSet result = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			stmt = connection.prepareStatement("SELECT * FROM T_DESPESA WHERE cd_usuario = ?");
 			stmt.setInt(1, userCode);
@@ -216,7 +216,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		this.stmt = null;
 
 		try {
-			this.connection = EnterpriseDBConnection.connect();
+			this.connection = EnterpriseDBConnection.getInstance().getConnection();
 
 			String sql = "UPDATE T_DESPESA SET cd_usuario = ?, vl_despesa = ?, nm_despesa = ?, txt_descricao = ? ,dt_despesa = ?, st_pago = ?, st_despesa_fixa = ? WHERE cd_despesa = ?";
 
