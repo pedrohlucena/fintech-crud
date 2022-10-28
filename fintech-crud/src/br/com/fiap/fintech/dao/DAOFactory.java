@@ -7,4 +7,7 @@ public abstract class DAOFactory {
 	public static ExpenseDAO getExpenseDAO() {
 		return new ExpenseDAOImpl();
 	}
+	public static InvestmentDAO getInvestmentDAO() {
+		return new InvestmentDAOImpl();
+	}
 }
