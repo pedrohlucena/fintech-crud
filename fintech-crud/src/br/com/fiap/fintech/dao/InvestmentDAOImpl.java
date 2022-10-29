@@ -39,7 +39,8 @@ public class InvestmentDAOImpl implements InvestmentDAO {
 			stmt.setDouble(6, investment.getBalance());
 			stmt.setDate(7, data);
 
-			stmt.executeUpdate();
+			//stmt.executeUpdate();
+			stmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -233,6 +234,7 @@ public class InvestmentDAOImpl implements InvestmentDAO {
 			stmt.setDate(5, data);
 			stmt.setDouble(6, investment.getEarnedValue());
 			stmt.setDouble(7, investment.getLostValue());
+			stmt.setInt(8, investment.getInvestmentCode());
 
 			stmt.executeUpdate();
 		} catch (SQLException e) {
