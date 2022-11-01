@@ -125,10 +125,6 @@ public class PhoneDAOImpl implements PhoneDAO {
 			result = this.stmt.executeQuery();
 
 			if (result.next()) {
-				System.out.println("entrei");
-				java.sql.Date data = result.getDate("nr_ddd");
-				Calendar phoneDate = Calendar.getInstance();
-				phoneDate.setTimeInMillis(data.getTime());
 
 				phone = new Phone(
 						result.getInt("cd_completo"), 
